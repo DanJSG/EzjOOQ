@@ -1,4 +1,4 @@
-package com.jsg.jooqplayground.ezsql;
+package com.jsg.jooqplayground.ezjooq;
 
 import org.jooq.Field;
 import org.jooq.Record;
@@ -37,7 +37,7 @@ class EntityRepresentation {
         return entityMap;
     }
 
-    private static <E extends Entity> Map<Field<?>, Object> buildEntityMap(Field<?>[] fields, Object[] values) {
+    private static <E> Map<Field<?>, Object> buildEntityMap(Field<?>[] fields, Object[] values) {
         Map<Field<?>, Object> entityMap = new HashMap<>();
         for (int i = 0; i < fields.length; i++) {
             entityMap.put(fields[i], values[i]);

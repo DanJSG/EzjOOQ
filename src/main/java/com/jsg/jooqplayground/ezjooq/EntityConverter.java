@@ -1,4 +1,4 @@
-package com.jsg.jooqplayground.ezsql;
+package com.jsg.jooqplayground.ezjooq;
 
 import org.jooq.Record;
 import org.jooq.impl.DSL;
@@ -10,19 +10,20 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-abstract class EntityConverter {
+final class EntityConverter {
 
-    static <E extends Entity> EntityRepresentation unwrap(E entity) {
+    private EntityConverter() {}
+
+    static EntityRepresentation unwrap(Object entity) {
         org.jooq.Table<Record> table = getTable(entity.getClass());
         Field[] entityFields = entity.getClass().getDeclaredFields();
-        Field[] undeclaredFields = entity.getClass().getFields();
         List<Field> validFields = new ArrayList<>();
         org.jooq.Field<?>[] columns = getAllColumnsAndFields(entityFields, validFields).toArray(new org.jooq.Field[0]);
         Object[] values = getValues(entity, validFields);
         return new EntityRepresentation(table, columns, values);
     }
 
-    static <E extends Entity>org.jooq.Table<Record> getTable(Class<E> type) {
+    static org.jooq.Table<Record> getTable(Class<?> type) {
         Annotation[] annotations = type.getDeclaredAnnotations();
         String tableName = null;
         for (Annotation annotation : annotations) {
@@ -34,7 +35,7 @@ abstract class EntityConverter {
         return tableName != null ? DSL.table(tableName.toLowerCase()) : null;
     }
 
-    private static <E extends Entity> Object[] getValues(Entity entity, List<Field> fields) {
+    private static Object[] getValues(Object entity, List<Field> fields) {
         Object[] values = new Object[fields.size()];
         for(int i = 0; i < fields.size(); i++) {
             try {
@@ -46,7 +47,7 @@ abstract class EntityConverter {
         return values;
     }
 
-    private static <E extends Entity> List<org.jooq.Field<?>> getAllColumnsAndFields(Field[] fields, List<Field> validFields) {
+    private static List<org.jooq.Field<?>> getAllColumnsAndFields(Field[] fields, List<Field> validFields) {
         List<org.jooq.Field<?>> columns = new ArrayList<>();
         for (Field field : fields) {
             org.jooq.Field<?> column = getColumn(field);

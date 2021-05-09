@@ -1,12 +1,10 @@
 package com.jsg.jooqplayground;
 
-import com.jsg.jooqplayground.ezsql.Entity;
-
 import javax.persistence.Column;
 import javax.persistence.Table;
 
 @Table(name = "test")
-public class Example implements Entity {
+public class Example {
 
     @Column(name = "id")
     private int id;
@@ -14,15 +12,15 @@ public class Example implements Entity {
     @Column(name = "value")
     private String value;
 
-    @Column(name = "value")
+    @Column(name = "other")
     private String other;
 
     @Override
     public String toString() {
         return "Example{" +
-                "value='" + value + '\'' +
+                "id=" + id +
+                ", value='" + value + '\'' +
                 ", other='" + other + '\'' +
                 '}';
     }
-
 }

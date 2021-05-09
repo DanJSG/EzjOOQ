@@ -6,11 +6,13 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public abstract class ConnectionPool {
+public final class ConnectionPool {
 
     private static final BasicDataSource DATA_SOURCE = new BasicDataSource();
 
     private static boolean configured = false;
+
+    private ConnectionPool() {}
 
     public static void configure(String connectionString, String username, String password) {
         DATA_SOURCE.setUrl(connectionString);

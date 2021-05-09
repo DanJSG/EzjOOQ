@@ -2,7 +2,8 @@ package com.jsg.jooqplayground;
 
 import com.jsg.jooqplayground.db.ConnectionPool;
 import com.jsg.jooqplayground.db.DatabaseContext;
-import com.jsg.jooqplayground.ezsql.GenericRepository;
+import com.jsg.jooqplayground.ezjooq.CrudRepository;
+import com.jsg.jooqplayground.ezjooq.PojoRepository;
 import org.jooq.*;
 
 import java.util.List;
@@ -16,12 +17,12 @@ public class Main {
         ConnectionPool.configure(url, username, password);
         DatabaseContext.configure(ConnectionPool.getDataSource(), SQLDialect.MARIADB);
 
-
-//        Example example = new Example("Test", "984573049587vh5p36");
-//        EntityConverter.unwrap(example);
-        GenericRepository<Example> repo = new GenericRepository<>(DatabaseContext.get(), Example.class);
+        CrudRepository<Example> repo = new PojoRepository<>(DatabaseContext.get(), Example.class);
         List<Example> exampleList = repo.readAll();
         System.out.println(exampleList);
+
+
+
 //        boolean result = repo.updateWhere(example, DSL.field("value").eq("Test"));
 //        boolean result = repo.delete(example);
 //        System.out.println("Successful? " + result);

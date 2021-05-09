@@ -1,10 +1,10 @@
-package com.jsg.jooqplayground.ezsql;
+package com.jsg.jooqplayground.ezjooq;
 
 import org.jooq.Condition;
 
 import java.util.List;
 
-public interface CrudRepository<E extends Entity> {
+public interface CrudRepository<E> {
 
     boolean create(E entity);
 

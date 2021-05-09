@@ -1,4 +1,4 @@
-package com.jsg.jooqplayground.ezsql;
+package com.jsg.jooqplayground.ezjooq;
 
 import org.jooq.Condition;
 import org.jooq.DSLContext;
@@ -7,12 +7,12 @@ import org.jooq.impl.DSL;
 
 import java.util.List;
 
-public class GenericRepository<E extends Entity> implements CrudRepository<E> {
+public class PojoRepository<E> implements CrudRepository<E> {
 
     private final DSLContext db;
     private final Class<E> type;
 
-    public GenericRepository(DSLContext db, Class<E> type) {
+    public PojoRepository(DSLContext db, Class<E> type) {
         this.db = db;
         this.type = type;
     }
