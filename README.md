@@ -13,7 +13,7 @@ Add the following to the dependencies section of your pom.xml:
 <dependency>
     <groupId>org.ezlibs</groupId>
     <artifactId>ezjooq</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
