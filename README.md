@@ -1,15 +1,38 @@
-# EzjOOQ <br> ![Test](https://github.com/DanJSG/EzjOOQ/actions/workflows/build.yml/badge.svg) 
+# EzjOOQ (Easy jOOQ) <br> ![Test](https://github.com/DanJSG/EzjOOQ/actions/workflows/build.yml/badge.svg) 
 Simple CRUD Repository Wrapper for the jOOQ Library utilising Java Persistence API annotations. 
-Makes basic CRUD operations extremely simple, leaving regular jOOQ DSL queries for the complex stuff.
+Makes basic CRUD operations extremely simple, leaving regular jOOQ DSL queries for the complex stuff. 
 
 For more information on jOOQ, [view their docs here](https://www.jooq.org/doc/latest/manual-single-page/).
 
 **This library is not officially associated with jOOQ in any way.**
 
-## Installation
-Add the following to your Maven dependencies:
+## Installation with Maven
+Add the following to the dependencies section of your pom.xml:
 
-**to come**
+```xml
+<dependency>
+    <groupId>org.ezlibs</groupId>
+    <artifactId>ezjooq</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+This library also depends on jOOQ and the Java Persistence API, so ensure the following are also in your dependencies list:
+
+```xml
+<dependency>
+    <groupId>org.jooq</groupId>
+    <artifactId>jooq</artifactId>
+    <version>3.14.9</version>
+</dependency>
+<dependency>
+    <groupId>javax.persistence</groupId>
+    <artifactId>javax.persistence-api</artifactId>
+    <version>2.2</version>
+</dependency>
+```
+
+Versions `3.x.x` of jOOQ should work with this library. Requires Java 8 or above.
 
 ## Basic Usage
 
