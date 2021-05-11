@@ -104,4 +104,4 @@ boolean success = repo.delete(user);
 ```
 
 ## License
-to come
+This repository is available under the [MIT License](https://github.com/DanJSG/EzjOOQ/blob/main/LICENSE).
