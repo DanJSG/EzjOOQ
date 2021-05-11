@@ -9,6 +9,7 @@ For more information on jOOQ, [view their docs here](https://www.jooq.org/doc/la
 ## Installation
 Add the following to your Maven dependencies:
 
+**to come**
 
 ## Basic Usage
 
@@ -103,4 +104,4 @@ boolean success = repo.delete(user);
 ```
 
 ## License
-to come
+This repository is available under the [MIT License](https://github.com/DanJSG/EzjOOQ/blob/main/LICENSE).
